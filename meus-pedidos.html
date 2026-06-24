@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedidos | BI Operacional</title>
+
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="dashboard.css">
+
+  <style>
+    body {
+      background: #1a1a1d;
+      color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    p {
+      opacity: 0.7;
+      margin-bottom: 20px;
+    }
+
+    .pedido-card {
+      background: #232327;
+      border: 1px solid #2f2f35;
+      padding: 16px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+    }
+
+    .pedido-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .pedido-info {
+      font-size: 13px;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+
+    .actions {
+      margin-top: 12px;
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      padding: 7px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: 0.2s;
+    }
+
+    .btn-ok {
+      background: #7c3aed;
+      color: #ffffff;
+    }
+
+    .btn-ok:hover {
+      filter: brightness(1.1);
+    }
+
+    .btn-cancel {
+      background: #6161C5;
+      color: #ffffff;
+    }
+
+    .btn-cancel:hover {
+      filter: brightness(1.1);
+    }
+
+    /* Header com botão de voltar */
+    .header-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .btn-voltar {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #f2f2f2;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .btn-voltar:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .header-title-block {
+      flex: 1;
+    }
+
+    /* alinhamento com dashboard */
+    .header {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="header-section">
+      <a href="dashboard.html" class="btn-voltar" aria-label="Voltar para Dashboard">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+      <div class="header-title-block">
+        <h2>Meus Pedidos</h2>
+        <p>Lista de todos os agendamentos</p>
+      </div>
+    </div>
+
+    <div id="lista-pedidos"></div>
+  </div>
+
+  <script type="module">
+    import { db } from "./firebase-config.js";
+    import {
+      collection,
+      getDocs,
+      doc,
+      updateDoc
+    } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+    const lista = document.getElementById("lista-pedidos");
+
+    async function carregarPedidos() {
+      lista.innerHTML = "";
+
+      const snap = await getDocs(collection(db, "agendamentos"));
+
+      snap.forEach((d) => {
+        const data = d.data();
+
+        const div = document.createElement("div");
+        div.classList.add("pedido-card");
+
+        div.innerHTML = `
+          <div class="pedido-title">${data.nomeCliente || "Sem nome"}</div>
+
+          <div class="pedido-info">
+            Serviço: ${data.servico || "-"}<br>
+            Endereço: ${data.endereco || "-"}<br>
+            Quantidade: ${data.quantidade || 1}<br>
+            Valor: R$ ${data.valor || 0}<br>
+            Status: ${data.status || "-"}
+          </div>
+
+          <div class="actions">
+            <button class="btn-ok">Concluir</button>
+            <button class="btn-cancel">Cancelar</button>
+          </div>
+        `;
+
+        // Concluir
+        div.querySelector(".btn-ok").onclick = async () => {
+          await updateDoc(doc(db, "agendamentos", d.id), {
+            status: "concluido"
+          });
+          carregarPedidos();
+        };
+
+        // Cancelar
+        div.querySelector(".btn-cancel").onclick = async () => {
+          await updateDoc(doc(db, "agendamentos", d.id), {
+            status: "cancelado"
+          });
+          carregarPedidos();
+        };
+
+        lista.appendChild(div);
+      });
+    }
+
+    carregarPedidos();
+  </script>
+  <script type="module" src="meus-pedidos.js"></script>
+</body>
+
+</html>

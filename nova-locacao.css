@@ -1,0 +1,23 @@
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0;
+}
+
+.back-button {
+  font-size: 22px;
+  text-decoration: none;
+  color: #282828;
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #282828;
+}
+
+.form-container {
+  width: 100%;
+  padding: 10px 0;
+}

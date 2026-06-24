@@ -1,0 +1,167 @@
+/* ============================================================
+   VARIÁVEIS DE CORES E DESIGN - Rodrigo Caçambas
+   ============================================================ */
+:root {
+  --color-primary: #282828; /* Cor principal escura */
+  --color-primary-light: #a9a9a9; /* Texto do botão */
+  --gradient-main: linear-gradient(180deg, #000000 0%, #c5c5c5 100%);
+
+  --font-family-base: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --radius-md: 20px;
+  --spacing-md: 16px;
+  --spacing-lg: 20px;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background: var(--gradient-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-md);
+}
+
+.app-container {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.login-title {
+  font-size: 30px;
+  font-weight: 600;
+  color: #a9a9a9; /* Cor alterada para #A9A9A9 */
+  text-align: center;
+  margin-bottom: 20px; /* Adicionado um respiro abaixo do título */
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+.login-form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px; /* Mais espaço entre um campo e outro */
+}
+
+.login-input {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid #ccc;
+  background-color: #fff;
+
+  display: block;
+}
+.login-input:focus {
+  outline: none;
+  border-color: #282828;
+  box-shadow: 0 0 0 3px rgba(40, 40, 40, 0.15);
+}
+
+.login-button--primary {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--color-primary);
+  color: var(--color-primary-light);
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+.login-button--primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.login-button--primary:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.login-button--primary:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 3px;
+}
+
+.login-link {
+  color: #a9a9a9;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+.login-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #a9a9a9; /* Cor alterada para #A9A9A9 */
+  margin-bottom: 12px; /* Espaço entre o texto e a caixa (input) */
+  display: block; /* Garante que o espaçamento funcione */
+}
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.login-logo-wrapper {
+  margin-bottom: 20px;
+}
+
+.login-logo {
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+}
+
+.login-subtitle {
+  color: #a9a9a9;
+  font-size: 15px;
+  line-height: 1.5;
+  max-width: 320px;
+  margin-top: -10px;
+}
+.login-footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login-footer p {
+  color: #a9a9a9;
+  font-size: 13px;
+  opacity: 0.7;
+}
+.login-form-section {
+  width: 100%;
+}

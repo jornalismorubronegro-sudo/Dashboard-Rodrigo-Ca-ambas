@@ -1,0 +1,285 @@
+/* ============================================================
+   RESET E VARIÁVEIS GLOBAIS - DESIGN SYSTEM
+   ============================================================ */
+
+:root {
+  --color-primary-dark: #591c31;
+  --color-primary-light: #f0c1d1;
+  --color-accent: #a8617b;
+  --color-text-light: #f2e4ee;
+  --color-gradient-top: #ffd9e7;
+  --color-gradient-bottom: #a8617b;
+
+  --font-family-base: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-body: 16px;
+  --font-size-heading: clamp(28px, 7vw, 30px);
+  --font-size-button: clamp(22px, 5vw, 25px);
+  --line-height-base: 1.5;
+  --line-height-heading: 1.3;
+
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 20px;
+  --spacing-xl: clamp(20px, 5vw, 24px);
+  --spacing-2xl: clamp(24px, 6vw, 32px);
+
+  --radius-md: 20px;
+  --radius-lg: 24px;
+
+  --shadow-sm: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  --shadow-hover: 0px 4px 8px 0px rgba(0, 0, 0, 0.3);
+
+  --transition-base: 0.3s ease-in-out;
+
+  /* Gradiente centralizado */
+  --gradient-main: linear-gradient(180deg, #000000 0%, #c5c5c5 100%);
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-base);
+  background: var(--gradient-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-md);
+}
+
+/* ============================================================
+   CONTAINER PRINCIPAL
+   ============================================================ */
+
+.app-container {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Garante que tudo dentro fique no centro horizontal */
+  background: var(--gradient-main);
+}
+
+/* ============================================================
+   MAIN - Layout Flex Otimizado
+   ============================================================ */
+
+.landing-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
+  width: 100%;
+  gap: 10px; /* Espaçamento ainda mais compacto entre logo, título e botão */
+  padding: var(--spacing-md);
+}
+
+/* ============================================================
+   HEADER - Logo
+   ============================================================ */
+
+.landing-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 0;
+  margin-bottom: 12px;
+}
+
+.landing-logo-wrapper {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 239 / 167;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.landing-logo {
+  max-width: 260px;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+}
+
+.landing-footer {
+  margin-top: 8px;
+  text-align: center;
+  padding: 0.75rem 0;
+}
+
+/* ============================================================
+   CONTENT - Tagline
+   ============================================================ */
+
+.landing-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 var(--spacing-md) var(--spacing-md);
+  gap: var(--spacing-sm); /* Espaçamento uniforme entre título e descrição */
+  text-align: center;
+}
+
+.landing-tagline {
+  font-size: var(--font-size-heading);
+  font-weight: 600;
+  color: #282828; /* Cor solicitada */
+  line-height: var(--line-height-heading);
+  word-wrap: break-word;
+  max-width: 420px;
+}
+
+.landing-description {
+  margin: 0;
+  color: #282828;
+  line-height: 1.6;
+  max-width: 420px;
+}
+
+/* ============================================================
+   NAVEGAÇÃO - Botões CTA
+   ============================================================ */
+
+.landing-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  width: 100%;
+  padding: var(--spacing-xl) 0 var(--spacing-xl) 0;
+}
+
+.landing-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 44px;
+  padding: var(--spacing-lg) var(--spacing-md);
+  font-size: var(--font-size-button);
+  font-weight: 500;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  font-family: inherit;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+/* Estilos Base para Botões */
+.landing-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.landing-button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.landing-button:focus-visible {
+  outline: 2px solid var(--color-text-light);
+  outline-offset: 2px;
+}
+
+/* Variantes de Botão */
+.landing-button--primary {
+  background-color: #282828;
+  color: #a9a9a9;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ============================================================
+   ACESSIBILIDADE
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .landing-button:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --color-primary-dark: #3d0e20;
+    --color-primary-light: #f8e8f0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-gradient-top: #d4b5c8;
+    --color-gradient-bottom: #8b4d63;
+  }
+  /* =====================================
+   Landing Description
+===================================== */
+
+  .landing-description {
+    max-width: 600px;
+    margin: 1rem auto 2rem;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.85;
+    color: #282828;
+  }
+
+  /* =====================================
+   Footer
+===================================== */
+
+  .landing-footer {
+    margin-top: 2rem;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .landing-footer p {
+    font-size: 0.875rem;
+    opacity: 0.6;
+    color: #282828;
+  }
+  /* =====================================
+   Landing Content
+===================================== */
+
+  .landing-description {
+    max-width: 600px;
+    margin: 1rem auto 2rem;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  /* =====================================
+   Footer
+===================================== */
+
+  .landing-footer {
+    margin-top: 3rem;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .landing-footer p {
+    font-size: 0.875rem;
+    opacity: 0.6;
+  }
+}

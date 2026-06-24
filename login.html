@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rodrigo Caçambas - Login">
+    <title>Login - Rodrigo Caçambas</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <main class="login-main">
+            <header class="login-header">
+                <div class="login-logo-wrapper">
+                    <img src="./assets/logo-rodrigo-cacambas.png" alt="Logo Rodrigo Caçambas" class="login-logo">
+                </div>
+
+                <h1 class="login-title">
+                    Acesso ao Sistema
+                </h1>
+
+                <p class="login-subtitle">
+                    Entre com suas credenciais para acessar o painel de gestão.
+                </p>
+            </header>
+
+            <section class="login-form-section">
+                <form class="login-form" id="loginForm" novalidate>
+                    <div class="login-form-group">
+                        <label for="emailInput" class="login-label">E-mail</label>
+                        <input type="email" id="emailInput" class="login-input" placeholder="Digite seu e-mail" autocomplete="email" required aria-label="Email para login">
+                    </div>
+
+                    <div class="login-form-group">
+                        <label for="passwordInput" class="login-label">Senha</label>
+                        <input type="password" id="passwordInput" class="login-input" placeholder="Digite sua senha" autocomplete="current-password" required aria-label="Senha para login">
+                    </div>
+
+                    <button type="submit" class="login-button login-button--primary">
+                        Entrar
+                    </button>
+
+                    <div style="margin-top:8px;text-align:right">
+
+                    </div>
+                </form>
+                <div id="errorMessage" style="color: #d93025; margin-top: 15px; text-align: center; font-weight: bold;"></div>
+            </section>
+            <footer class="login-footer">
+                <p>Rodrigo Caçambas © 2026</p>
+            </footer>
+        </main>
+    </div>
+    <script type="module" src="login.js"></script>
+
+</body>
+
+</html>
