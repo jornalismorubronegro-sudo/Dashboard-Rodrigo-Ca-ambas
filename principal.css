@@ -484,13 +484,13 @@ body {
     padding: 16px;
 
     /* Gradiente igual ao fundo da página */
-    background: linear-gradient(180deg, #000000 0%, #c5c5c5 100%);
+    background: #ffffff;
 
     border-radius: 16px; /* Arredondamento que você já tem */
     text-decoration: none;
 
     /* Cor da fonte dentro do botão */
-    color: #ffffff;
+    color: #282828;
     font-weight: 600;
 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -505,13 +505,13 @@ body {
   /* Ajuste da setinha para aparecer no fundo escuro */
   .service-chevron {
     margin-left: auto;
-    color: #ffffff;
+    color: var(--color-primary);
     font-size: 20px;
   }
 
   /* Opcional: Ajuste para o texto não ficar cinza se houver alguma regra herdada */
   .service-label {
-    color: #ffffff;
+    color: #282828;
     font-weight: 600;
   }
   .profile-avatar-placeholder {
@@ -528,14 +528,6 @@ body {
     color: #282828;
 
     border-radius: 50%;
-  }
-  #nome-cliente {
-    color: #00ff00 !important;
-  }
-  #nome-cliente {
-    color: #ffffff !important;
-    font-size: 24px !important;
-    background: red !important;
   }
   .header-container {
     display: flex;
