@@ -119,7 +119,9 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
+  border-radius: 50%;
 }
 
 .header-actions {
@@ -442,92 +444,54 @@ body {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 }
 
-@media (max-width: 360px) {
+@media (max-width: 420px) {
   .app-container {
-    padding: 20px 16px 16px;
+    padding: 18px 14px;
   }
 
   .app-content {
-    padding: 24px 18px 28px;
+    padding: 20px 16px;
+    border-radius: 28px 28px 0 0;
   }
 
-  .welcome-name {
-    font-size: 28px;
+  .principal-nav {
+    padding: 0;
   }
 
-  .quick-card,
-  .service-card {
-    padding: 16px 14px;
+  .principal-title {
+    font-size: 17px;
   }
 
-  .gallery-scroll img {
-    width: 128px;
-    height: 164px;
-  }
-}
-
-@media (max-width: 420px) {
-  .profile-avatar {
+  .profile-avatar-placeholder {
     width: 64px;
     height: 64px;
+    font-size: 46px;
   }
+
   .profile-info .profile-name {
     font-size: 18px;
   }
+
+  .profile-info .profile-sub {
+    font-size: 12px;
+  }
+
+  .btn-sair {
+    font-size: 11px;
+    padding: 8px 14px;
+  }
+
   .service-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
     padding: 16px;
-
-    background: #ffffff;
-
-    border: 1px solid #d9d9d9;
-    border-radius: 16px;
-
-    color: #282828;
-    font-weight: 600;
-
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
-  .service-row:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.1);
-  }
-
-  /* Ajuste da setinha para aparecer no fundo escuro */
-  .service-chevron {
-    margin-left: auto;
-    color: var(--color-primary);
-    font-size: 20px;
-  }
-
-  /* Opcional: Ajuste para o texto não ficar cinza se houver alguma regra herdada */
   .service-label {
-    color: #282828;
-    font-weight: 600;
+    font-size: 14px;
   }
-  .profile-avatar-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    width: 72px;
-    height: 72px;
-
-    font-size: 54px;
-
-    background: #ffffff;
-    color: #282828;
-
-    border-radius: 50%;
-  }
-  .header-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* Distância entre o título e o botão */
-    margin-bottom: 20px;
+  .categoria-img,
+  .service-icon {
+    width: 44px;
+    height: 44px;
   }
 }
