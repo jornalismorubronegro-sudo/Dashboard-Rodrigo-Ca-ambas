@@ -14,10 +14,13 @@
 }
 
 body {
+  margin: 0;
+  padding: 0;
   font-family: "Poppins", sans-serif;
   background: var(--color-primary-dark);
   color: var(--color-text);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .app-container {
@@ -25,7 +28,8 @@ body {
   max-width: 480px;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 24px 20px 20px;
+  padding: 20px 18px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
 }
@@ -78,8 +82,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 14px;
+  gap: 14px;
+  padding: 14px 0;
 }
 
 .profile-info .profile-greeting {
@@ -183,11 +187,11 @@ body {
 .app-content {
   width: 100%;
   flex: 1;
-  background-color: var(--color-bg-page);
-  border-radius: 40px 40px 0 0;
-  padding: 22px 18px 28px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  background: var(--color-bg-page);
+  border-radius: 32px 32px 0 0;
+  padding: 22px 18px;
   margin-top: 12px;
+  box-sizing: border-box;
 }
 
 .quick-access,
@@ -209,18 +213,23 @@ body {
 .service-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
+
   padding: 16px;
 
-  background: #ffffff;
+  background: #fff;
 
-  border: 1px solid #d9d9d9;
   border-radius: 16px;
 
+  border: 1px solid #d9d9d9;
+
   color: #282828;
-  font-weight: 600;
+
+  text-decoration: none;
 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  transition: 0.2s;
 }
 .service-row:hover {
   transform: translateY(-2px);
@@ -325,10 +334,6 @@ body {
 .gallery-scroll::-webkit-scrollbar {
   display: none;
 }
-
-.gallery-row img,
-.foto-vitrine,
-
 
 /* Estilos do Lightbox (Igual à Galeria) */
 #lightbox {
@@ -477,10 +482,10 @@ body {
   }
 
   .btn-sair {
-    font-size: 11px;
-    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-
   .service-row {
     padding: 16px;
   }
