@@ -208,20 +208,17 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 18px;
+  padding: 16px;
 
   background: #ffffff;
 
+  border: 1px solid #d9d9d9;
   border-radius: 16px;
-  text-decoration: none;
 
   color: #282828;
-
-  border: 1px solid #d9d9d9;
+  font-weight: 600;
 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-
-  transition: 0.2s ease;
 }
 .service-row:hover {
   transform: translateY(-2px);
@@ -483,18 +480,15 @@ body {
     gap: 12px;
     padding: 16px;
 
-    /* Gradiente igual ao fundo da página */
     background: #ffffff;
 
-    border-radius: 16px; /* Arredondamento que você já tem */
-    text-decoration: none;
+    border: 1px solid #d9d9d9;
+    border-radius: 16px;
 
-    /* Cor da fonte dentro do botão */
     color: #282828;
     font-weight: 600;
 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
   .service-row:hover {
