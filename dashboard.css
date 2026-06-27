@@ -326,37 +326,6 @@ body {
   padding: 12px 0;
 }
 
-/* Responsividade para diferentes tamanhos de tela */
-@media (max-width: 768px) {
-  .card-chart {
-    min-height: 220px;
-    padding: 12px;
-  }
-
-  .card-chart canvas {
-    height: 210px !important;
-  }
-
-  .metrics-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .card-top-clientes {
-    grid-column: 1;
-  }
-}
-
-@media (max-width: 480px) {
-  .card-chart {
-    min-height: 200px;
-    padding: 10px;
-  }
-
-  .card-chart canvas {
-    height: 180px !important;
-  }
-}
-
 .chart-card canvas {
   width: 100% !important;
   height: 100% !important;
