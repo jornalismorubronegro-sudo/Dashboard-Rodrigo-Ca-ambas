@@ -5,46 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Painel de Caçambas | BI Operacional</title>
-  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="dashboard.css">
 
   <link rel="stylesheet" href="dashboard.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <style>
-    /* Mantemos apenas o loading screen aqui por ser uma sobreposição crítica */
-    #loading-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #f2f2f2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      font-weight: 600;
-      color: #282828;
-    }
-
-    .filters {
-      display: flex;
-      gap: 8px;
-      justify-content: center;
-      flex-wrap: wrap;
-      /* Garante que não quebre em telas muito pequenas */
-    }
-
-    /* Diminuir o tamanho dos botões e seletores */
-    .btn-admin {
-      font-size: 12px !important;
-      padding: 6px 10px !important;
-      height: auto !important;
-      min-height: unset !important;
-      width: auto !important;
-      border-radius: 8px !important;
-    }
-  </style>
 </head>
 
 <body>
@@ -65,104 +30,102 @@
       <a href="login.html" class="btn-home">⎋</a>
     </header>
 
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px; margin-bottom: 20px;">
-      <div class="filters">
-        <select id="filter-year" class="btn-admin filter-select">
-          <option value="Geral" selected>Ano</option>
-        </select>
+    <div class="filters">
+      <select id="filter-year" class="btn-admin filter-select">
+        <option value="Geral" selected>Ano</option>
+      </select>
 
-        <select id="filter-month" class="btn-admin filter-select">
-          <option value="Geral" selected>Mês</option>
-          <option value="01">Janeiro</option>
-          <option value="02">Fevereiro</option>
-          <option value="03">Março</option>
-          <option value="04">Abril</option>
-          <option value="05">Maio</option>
-          <option value="06">Junho</option>
-          <option value="07">Julho</option>
-          <option value="08">Agosto</option>
-          <option value="09">Setembro</option>
-          <option value="10">Outubro</option>
-          <option value="11">Novembro</option>
-          <option value="12">Dezembro</option>
-        </select>
-      </div>
+      <select id="filter-month" class="btn-admin filter-select">
+        <option value="Geral" selected>Mês</option>
+        <option value="01">Janeiro</option>
+        <option value="02">Fevereiro</option>
+        <option value="03">Março</option>
+        <option value="04">Abril</option>
+        <option value="05">Maio</option>
+        <option value="06">Junho</option>
+        <option value="07">Julho</option>
+        <option value="08">Agosto</option>
+        <option value="09">Setembro</option>
+        <option value="10">Outubro</option>
+        <option value="11">Novembro</option>
+        <option value="12">Dezembro</option>
+      </select>
     </div>
-    <p id="current-month-label" class="period-label"></p>
-    <a href="meus-pedidos.html" class="btn-admin" style="min-width: 260px; padding: 14px 30px; text-align: center; font-size: 14px; display: block; margin: 0 auto;">Meus Pedidos</a>
   </div>
-
-  <main class="metrics-grid">
-
-
-    <div class="card">
-      <div class="card-header-row">
-        <h3>Carteira</h3>
-      </div>
-      <div id="valor-carteira" class="value">R$ 0,00</div>
+  <p id="current-month-label" class="period-label"></p>
+  <<a href="meus-pedidos.html" class="btn-admin btn-pedidos">Meus Pedidos</a>
     </div>
 
-    <div class="card">
-      <div class="card-header-row">
-        <h3>Faturamento</h3>
+    <main class="metrics-grid">
+
+
+      <div class="card">
+        <div class="card-header-row">
+          <h3>Carteira</h3>
+        </div>
+        <div id="valor-carteira" class="value">R$ 0,00</div>
       </div>
-      <div id="valor-faturamento-concluido" class="value">R$ 0,00</div>
-    </div>
 
-    <div class="card">
-      <div class="card-header-row">
-        <h3>Clientes Aguardando Entrega</h3>
+      <div class="card">
+        <div class="card-header-row">
+          <h3>Faturamento</h3>
+        </div>
+        <div id="valor-faturamento-concluido" class="value">R$ 0,00</div>
       </div>
-      <div id="valor-clientes-aguardando" class="value">0</div>
-    </div>
 
-    <div class="card">
-      <div class="card-header-row">
-        <h3>Cancelamentos</h3>
+      <div class="card">
+        <div class="card-header-row">
+          <h3>Clientes Aguardando Entrega</h3>
+        </div>
+        <div id="valor-clientes-aguardando" class="value">0</div>
       </div>
-      <div id="valor-cancelamentos" class="value">0</div>
-    </div>
 
-    <div class="card">
-      <div class="card-header-row">
-        <h3>Caçambas Ocupadas</h3>
+      <div class="card">
+        <div class="card-header-row">
+          <h3>Cancelamentos</h3>
+        </div>
+        <div id="valor-cancelamentos" class="value">0</div>
       </div>
-      <div id="valor-cacambas-ocupadas" class="value">0</div>
-    </div>
 
-    <div class="card">
-      <div class="card-header-row">
-        <h3>Caçambas Disponíveis</h3>
+      <div class="card">
+        <div class="card-header-row">
+          <h3>Caçambas Ocupadas</h3>
+        </div>
+        <div id="valor-cacambas-ocupadas" class="value">0</div>
       </div>
-      <div id="valor-cacambas-disponiveis" class="value">0</div>
-    </div>
 
-    <div class="card">
-      <div class="card-header-row">
-        <h3>Ticket Médio</h3>
+      <div class="card">
+        <div class="card-header-row">
+          <h3>Caçambas Disponíveis</h3>
+        </div>
+        <div id="valor-cacambas-disponiveis" class="value">0</div>
       </div>
-      <div id="valor-ticket-medio" class="value">R$ 0,00</div>
-    </div>
-    <div class="card">
-      <div class="card-header-row">
-        <h3>Clientes Ativos (Pedidos na Rua)</h3>
+
+      <div class="card">
+        <div class="card-header-row">
+          <h3>Ticket Médio</h3>
+        </div>
+        <div id="valor-ticket-medio" class="value">R$ 0,00</div>
       </div>
-      <div id="valor-clientes-ativos" class="value">0</div>
-    </div>
-  </main>
+      <div class="card">
+        <div class="card-header-row">
+          <h3>Clientes Ativos (Pedidos na Rua)</h3>
+        </div>
+        <div id="valor-clientes-ativos" class="value">0</div>
+      </div>
+    </main>
 
-  <section class="chart-section" style="height: auto; min-height: 350px; display: flex; flex-direction: column; align-items: center;">
-    <h3 style="margin-bottom: 20px; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; color: #f2f2f2;">Locações por Status</h3>
-    <div style="width: 100%; max-width: 300px;"><canvas id="statusChart"></canvas></div>
-  </section>
+    <section class="chart-section" <h3>Locações por Status</h3>
+      <div><canvas id="statusChart"></canvas></div>
+    </section>
 
-  <section class="chart-section" style="height: auto; min-height: 350px; display: flex; flex-direction: column; align-items: center;">
-    <h3 style="margin-bottom: 20px; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; color: #f2f2f2;">Locações por Bairro</h3>
-    <div style="width: 100%; max-width: 300px;"><canvas id="bairroChart"></canvas></div>
-  </section>
+    <section class="chart-section">
+      <h3>Locações por Bairro</h3>
+      <di><canvas id="bairroChart"></canvas></div>
+    </section>
 
 
-  <script type="module" src="dashboard.js"></script>
+    <script type="module" src="dashboard.js"></script>
 
 </body>
 

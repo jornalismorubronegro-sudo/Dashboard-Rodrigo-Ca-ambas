@@ -99,7 +99,7 @@ onAuthStateChanged(auth, async (user) => {
       const valor = safeNumber(data.valor);
       receita += valor;
 
-      const status = (data.status || "").toLowerCase().trim();
+      const status = normalizeStatus(data.status);
 
       if (status === "agendado") {
         clientesAguardandoEntrega += 1;
@@ -202,6 +202,7 @@ onAuthStateChanged(auth, async (user) => {
     if (yearSelect) {
       [...anosDisponiveis]
         .sort((a, b) => b.localeCompare(a))
+
         .forEach((ano) => {
           const option = document.createElement("option");
           option.value = ano;
@@ -236,16 +237,16 @@ onAuthStateChanged(auth, async (user) => {
         },
         options: {
           responsive: true,
-          maintainAspectRatio: true,
+          maintainAspectRatio: false,
           plugins: {
-            legend: { labels: { color: "#f2f2f2" } },
+            legend: { labels: { color: "#282828" } },
           },
           scales: {
-            x: { ticks: { color: "#f2f2f2" }, grid: { color: "#333333" } },
+            x: { ticks: { color: "#282828" }, grid: { color: "#333333" } },
             y: {
               beginAtZero: true, // Garante que o gráfico comece no zero
               ticks: {
-                color: "#f2f2f2",
+                ticks: { color: "#282828" },
                 callback: (value) => `R$ ${value.toLocaleString()}`,
               },
               grid: { color: "#333333" },
@@ -276,20 +277,20 @@ onAuthStateChanged(auth, async (user) => {
         },
         options: {
           responsive: true,
-          maintainAspectRatio: true,
+          maintainAspectRatio: false,
           indexAxis: "y",
           plugins: {
             legend: {
-              labels: { color: "#f2f2f2", font: { size: 12 } },
+              labels: { color: "#282828", font: { size: 12 } },
             },
           },
           scales: {
             x: {
-              ticks: { color: "#f2f2f2" },
+              ticks: { color: "#282828" },
               grid: { color: "#333333" },
             },
             y: {
-              ticks: { color: "#f2f2f2" },
+              ticks: { color: "#282828" },
               grid: { color: "#333333" },
             },
           },
